@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def new
-    @author = Author.new()
+    @author = Author.new
   end
   def index
     @authors = Author.all
@@ -13,7 +13,6 @@ class AuthorsController < ApplicationController
       render 'new'
     end
 
-    redirect_to root_path, notice: 'Success!'
     #render plain: params[:author].inspect
   end
   def show
