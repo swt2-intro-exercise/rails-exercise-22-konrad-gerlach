@@ -12,6 +12,13 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+  it "should save the author" do
+    visit new_author_path
+    page.fill_in "author[first_name]", with: "Weid Al"
+    page.fill_in "author[last_name]", with: "Jankovic"
+    page.fill_in "author[homepage]", with: "weid.com"
+    find('input[type="submit"]').click
+  end
   it "should error when an invalid author is created" do
     author = Author.new(first_name: "whatever",homepage: "rocks your boat.com")
     expect(author).to_not be_valid
