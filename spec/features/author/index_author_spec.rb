@@ -30,4 +30,9 @@ describe "Author Index page", type: :feature do
     visit authors_path
     expect(page).to have_link 'Edit', href: edit_author_path(1)
   end
+  it "should have a link to delete the author" do
+    Author.new(last_name:"wertfd").save()
+    visit authors_path
+    expect(page).to have_link 'Delete'
+  end
 end
