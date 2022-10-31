@@ -8,6 +8,8 @@
     <p>
       <%= link_to "Show this paper", paper %>
       <%= link_to "New paper", edit_paper_path(paper) %>
+      <%= link_to 'Delete', paper_path(paper),
+                  data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%>
     </p>
   <% end %>
 </div>
