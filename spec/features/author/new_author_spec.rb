@@ -25,7 +25,7 @@ describe "New author page", type: :feature do
     visit new_author_path
     fill_in "First name", with: author.first_name
     fill_in "Homepage", with: author.homepage
-    click_on "Save Author"
+    find('input[type="submit"]').click
     expect(page).to have_text('error')
 
   end
