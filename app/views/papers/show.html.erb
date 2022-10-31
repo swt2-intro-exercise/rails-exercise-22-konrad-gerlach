@@ -7,4 +7,8 @@
   <%= link_to "Back to papers", papers_path %>
 
   <%= button_to "Destroy this paper", @paper, method: :delete %>
+  <h1>Authors</h1>
+  <% @paper.authors.each do |author| %>
+    <p><%=author.name%></p>
+  <% end %>
 </div>
