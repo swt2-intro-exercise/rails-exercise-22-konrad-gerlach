@@ -18,6 +18,8 @@ describe "New author page", type: :feature do
     page.fill_in "author[last_name]", with: "Jankovic"
     page.fill_in "author[homepage]", with: "weid.com"
     find('input[type="submit"]').click
+    expect(Author.select {|a| a.name == "Weid Al Jankovic" }).to_not be_empty
+
   end
   it "should error when an invalid author is created" do
     author = Author.new(first_name: "whatever",homepage: "rocks your boat.com")
@@ -29,4 +31,5 @@ describe "New author page", type: :feature do
     expect(page).to have_text('error')
 
   end
+
  end
